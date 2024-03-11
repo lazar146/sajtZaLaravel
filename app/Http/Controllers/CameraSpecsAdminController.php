@@ -65,7 +65,7 @@ class CameraSpecsAdminController extends Controller
     {
         $content = CameraSpecModel::find($id);
         $isNew = false;
-        return view('admin.forms.specsForm',['content'=>$content,'isNew'=>$isNew]);
+        return view('admin.forms.specsForm',['content'=>$content,'isNew'=>$isNew,'tableName'=>'camera']);
     }
 
     /**

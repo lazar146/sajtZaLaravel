@@ -10,6 +10,7 @@ class ProfileController extends Controller
     public function index(){
 
         $user = session()->get('user');
+
         $checkouts = DB::table('models')
             ->join('model_specifications', 'models.id', '=', 'model_specifications.model_id')
             ->join('model_specification_color', 'model_specifications.id', '=', 'model_specification_color.ms_id')

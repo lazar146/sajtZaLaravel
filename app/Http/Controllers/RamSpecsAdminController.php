@@ -63,7 +63,7 @@ class RamSpecsAdminController extends Controller
     {
         $content = RamSpecModel::find($id);
         $isNew = false;
-        return view('admin.forms.specsForm',['content'=>$content,'isNew'=>$isNew]);
+        return view('admin.forms.specsForm',['content'=>$content,'isNew'=>$isNew,'tableName'=>'ram']);
     }
 
     /**

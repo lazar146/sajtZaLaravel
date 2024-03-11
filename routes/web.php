@@ -33,7 +33,10 @@ Route::post('/login',[\App\Http\Controllers\LoginController::class,'login'])->na
 Route::post('/logout',[\App\Http\Controllers\LoginController::class,'logout'])->name('logout');
 
 //cart
-Route::get('/cart',[\App\Http\Controllers\CartController::class,'sendToView'])->name('cart');
+Route::middleware([\App\Http\Middleware\IsLogged::class])->group(function () {
+    Route::get('/cart',[\App\Http\Controllers\CartController::class,'sendToView'])->name('cart');
+   });
+
 Route::get('/cart_items',[\App\Http\Controllers\CartController::class,'AddToCart'])->name('cartItems');
 Route::get('/cart_check',[\App\Http\Controllers\CartController::class,'CartCheck'])->name('CartCheck');
 
@@ -45,7 +48,10 @@ Route::post('/contact',[\App\Http\Controllers\ContactController::class,'sendEmai
 Route::get('/profile',[\App\Http\Controllers\ProfileController::class,'index'])->name('profile');
 
 //adminPanel
-Route::get('/admin',[\App\Http\Controllers\AdminController::class,'index'])->name('admin');
+Route::middleware([\App\Http\Middleware\IsAdmin::class])->group(function (){
+    Route::get('/admin',[\App\Http\Controllers\AdminController::class,'index'])->name('admin');
+});
+
 Route::get('/admin/{table}',[\App\Http\Controllers\AdminController::class,'showTable'])->name('showTable');
 
 //brandsTable
@@ -97,3 +103,6 @@ Route::resource('users_dva',\App\Http\Controllers\UsersDvaAdminController::class
 //images
 
 Route::resource('images',\App\Http\Controllers\ImagesAdminController::class);
+
+//author
+Route::get('author',[\App\Http\Controllers\AuthorController::class,'index'])->name('author');

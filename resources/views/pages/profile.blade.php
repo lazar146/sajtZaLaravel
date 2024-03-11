@@ -107,7 +107,7 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Email</label>
-                                    <input type="email" class="form-control" id="email" value="{{$user->email}}"  placeholder="Enter email ID">
+                                    <input type="email" disabled class="form-control" id="email" value="{{$user->email}}"  placeholder="Enter email ID">
                                 </div>
                             </div>
 

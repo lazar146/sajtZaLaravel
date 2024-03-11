@@ -63,7 +63,7 @@ class MemorySpecsAdminController extends Controller
     {
         $content = MemorySpecModel::find($id);
         $isNew = false;
-        return view('admin.forms.specsForm',['content'=>$content,'isNew'=>$isNew]);
+        return view('admin.forms.specsForm',['content'=>$content,'isNew'=>$isNew,'tableName'=>'memory']);
     }
 
     /**
