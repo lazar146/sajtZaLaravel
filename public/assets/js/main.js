@@ -8,6 +8,37 @@ function Izbaci(name) {
 if (Izbaci("cart") == null) {
     Ubaci("cart", []);
 }
+function updateProfil(){
+    console.log('s')
+    var name = document.getElementById('fullName').value;
+    var last_name = document.getElementById('last_name').value;
+    var id = document.getElementById('userId').value;
+    console.log()
+    $.ajax({
+        headers:{
+            'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+        },
+        method:'post',
+        url:'/profile/update',
+        data:{
+            'id':id,
+            'name':name,
+            'last_name':last_name
+        },
+        success:function (response){
+            toastr.success('Podaci su izmenjeni!')
+
+        },
+        error:function (err){
+            console.log(err)
+        }
+
+    })
+
+
+
+}
+
 $(document).on("click", "#addCart", addToCart);
 
 function addToCart(){
@@ -152,3 +183,5 @@ function showOverlay() {
 function hideOverlay() {
     document.getElementById('overlay').style.display = 'none';
 }
+
+

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserDva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ProfileController extends Controller
 {
@@ -21,5 +23,27 @@ class ProfileController extends Controller
             ->select('models.name as modelName','product_cart.created_at as buyDate')
             ->get();
         return view('pages.profile',['user'=>$user,'cek'=>$checkouts]);
+    }
+    public function update(Request $request){
+
+        try {
+            $id=$request->input('id');
+            $name =$request->input('name');
+            $lastName =$request->input('last_name');
+
+
+            $table = UserDva::find($id);
+
+            $table->name=$name;
+            $table->last_name=$lastName;
+
+            $table->save();
+            return redirect()->route('profile',)->with('success','Uspesno!');
+        }
+        catch (\Exception $e){
+            Log::error('Greška prilikom izvršavanja: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Nije izmenjen!');
+        }
+
     }
 }

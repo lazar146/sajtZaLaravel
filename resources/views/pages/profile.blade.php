@@ -94,6 +94,7 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
+                                    <input type="hidden" id="userId" value="{{$user->id}}">
                                     <label for="fullName">Ime</label>
                                     <input type="text" class="form-control" id="fullName" value="{{$user->name}}">
                                 </div>
@@ -117,8 +118,8 @@
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="text-right">
                                     <button class="btn btn-warning" id="changepass" >Change password</button>
-                                    <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-                                    <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+
+                                    <button type="button" id="updateProfil" onclick="updateProfil()" name="updateProfil" class="btn btn-primary">Update</button>
 
 
                                 </div>
