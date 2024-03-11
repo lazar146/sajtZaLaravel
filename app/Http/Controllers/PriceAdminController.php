@@ -28,7 +28,6 @@ class PriceAdminController extends Controller
         $msc_idsAndModels = DB::table('models')
             ->join('model_specifications', 'models.id', '=', 'model_specifications.model_id')
             ->join('model_specification_color', 'model_specifications.id', '=', 'model_specification_color.ms_id')
-            ->join('price', 'model_specification_color.id', '=', 'price.msc_id')
             ->select('models.name as modelName','model_specification_color.id as mscId')
             ->get();
 
@@ -44,12 +43,13 @@ class PriceAdminController extends Controller
     {
 
         try {
-
-            $name = $request->input('name');
-            $route = $request->input('route');
+            $msc_id = $request->input('msc_id');
+            $price = $request->input('price');
+            $old_price = $request->input('oldPrice');
             PriceModel::create([
-                'name'=>$name,
-                'route'=>$route
+                'msc_id'=>$msc_id,
+                'price'=>$price,
+                'old_price'=>$old_price
             ]);
             return redirect()->route('showTable',['table'=>'price'])->with('success','Uspesno!');
         }

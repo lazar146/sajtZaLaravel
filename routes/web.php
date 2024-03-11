@@ -93,3 +93,7 @@ Route::resource('roles',\App\Http\Controllers\RolesAdminController::class);
 
 //users_dva
 Route::resource('users_dva',\App\Http\Controllers\UsersDvaAdminController::class);
+
+//images
+
+Route::resource('images',\App\Http\Controllers\ImagesAdminController::class);

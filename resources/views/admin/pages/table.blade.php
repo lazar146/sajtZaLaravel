@@ -21,11 +21,21 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <form method="GET" action="{{ route($tableName.'.create') }}">
-                                @csrf
-                                @method('GET')
-                                <button style="width: 50%" type="submit" class="btn btn-primary">Insert</button>
-                            </form>
+                            @if($tableName != 'images')
+                                <form method="GET" action="{{ route($tableName.'.create') }}">
+                                    @csrf
+                                    @method('GET')
+                                    <button style="width: 50%" type="submit" class="btn btn-primary">Insert</button>
+                                </form>
+                            @else
+                                <form method="GET" action="{{route('images.index')}}">
+                                    @csrf
+                                    @method('GET')
+                                    <button style="width: 50%" type="submit" class="btn btn-primary">Insert</button>
+                                </form>
+                            @endif
+
+
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -43,11 +53,20 @@
                                                 <td>{{ $value }}</td>
                                             @endforeach
                                             <td>
-                                                <form  action="{{ route($tableName.'.edit', [$item->id]) }}">
-                                                    @csrf
+                                                @if($tableName != 'images')
+                                                    <form  action="{{ route($tableName.'.edit', [$item->id]) }}">
+                                                        @csrf
 
-                                                    <button style="width:100%" type="submit" class="btn btn-primary">Update</button>
-                                                </form>
+                                                        <button style="width:100%" type="submit" class="btn btn-primary">Update</button>
+                                                    </form>
+                                                @else
+                                                    <form  action="{{ route($tableName.'.edit', [$item->id]) }}">
+                                                        @csrf
+
+                                                        <button disabled style="width:100%" type="submit" class="btn btn-primary">Update</button>
+                                                    </form>
+                                                @endif
+
                                                 <form method="POST" action="{{ route($tableName.'.destroy', [$item->id]) }}">
                                                     @csrf
                                                     @method('DELETE')

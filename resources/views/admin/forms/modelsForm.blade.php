@@ -38,6 +38,10 @@
                                     <input type="text" class="form-control" id="name" name="name" value="{{$content->name}}" >
                                 </div>
                                 <div class="form-group">
+                                    <label for="des">Opis:</label>
+                                    <textarea class="form-control" id="des" name="des">{{$content->description}}</textarea>
+                                </div>
+                                <div class="form-group">
                                     <label for="date">Datum preuzimanja:</label>
                                     <input type="date" id="date" value="{{$content->date_of_delivery}}" name="date" class="form-control">
                                 </div>
@@ -60,6 +64,10 @@
                                 <div class="form-group">
                                     <label for="name">Naziv:</label>
                                     <input type="text" class="form-control" id="name" name="name" value="" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="des">Opis:</label>
+                                    <textarea class="form-control" id="des" name="des"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="date">Datum preuzimanja:</label>

@@ -34,18 +34,20 @@ class ModelsAdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProveraReg $request)
+    public function store(Request $request)
     {
 
         try {
 
             $name = $request->input('name');
+            $des = $request->input('des');
             $date = $request->input('date');
             $brand = $request->input('brand');
 
 
             ModelsModel::create([
                 'name'=>$name,
+                'description'=>$des,
                 'date_of_delivery'=>$date,
                 'brand_id'=>$brand,
 
@@ -92,6 +94,7 @@ class ModelsAdminController extends Controller
 
             $row = ModelsModel::find($id);
             $name = $request->input('name');
+            $des = $request->input('des');
             $date = $request->input('date');
             $brand = $request->input('brand');
 
@@ -99,9 +102,10 @@ class ModelsAdminController extends Controller
 
 
 
-            $row->name=$name;
-            $row->date_of_delivery=$date;
-            $row->brand_id=$brand;
+            $row->name = $name;
+            $row->description = $des;
+            $row->date_of_delivery = $date;
+            $row->brand_id = $brand;
 
             $row->save();
             return redirect()->route('showTable',['table'=>'models'])->with('success','Uspesno!');
