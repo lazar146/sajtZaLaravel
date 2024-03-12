@@ -26,18 +26,20 @@ class ProfileController extends Controller
     }
     public function update(Request $request){
 
+
         try {
             $id=$request->input('id');
             $name =$request->input('name');
             $lastName =$request->input('last_name');
 
 
-            $table = UserDva::find($id);
+            $user = DB::table('users_dva')
+                ->where('id',$id)
+                ->update(['name'=>$name,'last_name'=>$lastName]);
 
-            $table->name=$name;
-            $table->last_name=$lastName;
 
-            $table->save();
+
+
             return redirect()->route('profile',)->with('success','Uspesno!');
         }
         catch (\Exception $e){

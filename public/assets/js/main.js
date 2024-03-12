@@ -27,6 +27,7 @@ function updateProfil(){
         },
         success:function (response){
             toastr.success('Podaci su izmenjeni!')
+            console.log(response)
 
         },
         error:function (err){
