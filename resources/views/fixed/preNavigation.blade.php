@@ -5,7 +5,7 @@
         z-index: 1000;
         background-color: white;
         border: 1px solid #ddd;
-        width: 100%;
+        width: 90%;
     }
     #productStatus a{
         color: black;
@@ -25,7 +25,7 @@
             </div>
             <div class="col-lg-4 header-most-top d-flex py-2">
 
-                    <input type="text" class="form-control" placeholder="Pretraži telefone" id="keywordsSearch" name="pretraga">
+                    <input type="text" style="width: 90%" class="form-control" placeholder="Pretraži telefone" id="keywordsSearch" name="pretraga">
 
                 <div id="productStatus" style="display: none">
 
