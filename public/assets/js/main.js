@@ -228,13 +228,8 @@ keyword.addEventListener('keyup', function(){
     else {
 
         document.getElementById('productStatus').innerHTML = '';
-
+        document.getElementById('productStatus').style.display = 'none';
 
     }
 });
 
-keyword.addEventListener('blur', function(){
-    document.getElementById('productStatus').innerHTML = '';
-    document.getElementById('keywordsSearch').value = '';
-    document.getElementById('productStatus').style.display = 'none';
-})
