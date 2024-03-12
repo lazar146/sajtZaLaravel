@@ -19,6 +19,8 @@ Route::get('/', [\App\Http\Controllers\HomeController::class,'index'])->name('ho
 Route::get('/products', [\App\Http\Controllers\ProductsController::class,'index'])->name('products');
 Route::get('/products/single/{id}', [\App\Http\Controllers\ProductsController::class,'show'])->name('productsSingle');
 
+//search
+Route::get('/products/{param}',[\App\Http\Controllers\SearchController::class,'index'])->name('search');
 
 //contact
 Route::get('/contact', [\App\Http\Controllers\ContactController::class,'index'])->name('contact');

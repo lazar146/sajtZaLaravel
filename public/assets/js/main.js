@@ -183,5 +183,58 @@ function showOverlay() {
 function hideOverlay() {
     document.getElementById('overlay').style.display = 'none';
 }
+var keyword = document.getElementById('keywordsSearch');
+keyword.addEventListener('keyup', function(){
+    if(keyword.value.length >= 4){
+        $.ajax({
+            url: '/products/' + keyword.value,
+            method: 'GET',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response){
+                var html = '';
+                for (var i = 0; i < response.length; i++) {
+                    html += `<a href="/products/single/${response[i].modelId}" class="list-group-item list-group-item-action">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <img src="assets/images/${response[i].modelName}/${response[i].date}/${response[i].image}.jpg" class="img-fluid" alt="${response[i].modelName}">
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                 <h5 class="mb-1">${response[i].modelName}</h5>
+
+                                                <strong>$${response[i].price}</strong>
 
 
+                                            </div>
+                                        </div>
+                                    </a>`;
+                }
+                document.getElementById('productStatus').innerHTML = html;
+                document.getElementById('productStatus').style.display = 'block';
+
+                if(response.length == 0){
+                    document.getElementById('productStatus').innerHTML = '<a href="#" class="list-group-item list-group-item-action">No results</a>';
+                }
+
+            },
+
+            error: function(xhr, status, error){
+                console.error(error); // Obrada grešaka
+            }
+        });
+    }
+    else {
+
+        document.getElementById('productStatus').innerHTML = '';
+
+
+    }
+});
+
+keyword.addEventListener('blur', function(){
+    document.getElementById('productStatus').innerHTML = '';
+    document.getElementById('keywordsSearch').value = '';
+    document.getElementById('productStatus').style.display = 'none';
+})
