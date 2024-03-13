@@ -70,9 +70,6 @@ Route::resource('brands',\App\Http\Controllers\BrandsAdminController::class);
 //camera_specs
 Route::resource('camera_specs',\App\Http\Controllers\CameraSpecsAdminController::class);
 
-////cart
-//Route::resource('cartA',\App\Http\Controllers\CartAdminController::class);
-
 //colors
 Route::resource('colors',\App\Http\Controllers\ColorsAdminController::class);
 

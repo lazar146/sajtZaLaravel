@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminCheckRequest;
 use App\Http\Requests\ProveraReg;
 use App\Models\BrandModel;
 use App\Models\CameraSpecModel;
@@ -38,7 +39,7 @@ class ModelsSpecificationsAdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AdminCheckRequest $request)
     {
 
         try {
@@ -89,13 +90,11 @@ class ModelsSpecificationsAdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AdminCheckRequest $request, string $id)
     {
 
         try {
-//            $validatedData = $request->validate([
-//                'value'=>'required|int|max:255'
-//            ]);
+
 
             $row = ModelSpecificationModel::find($id);
             $model_id = $request->input('model_id');

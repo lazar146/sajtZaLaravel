@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminCheckRequest;
 use App\Models\ColorModel;
 use App\Models\ModelSpecificationColorModel;
 use App\Models\ModelSpecificationModel;
@@ -38,7 +39,7 @@ class ModelsSpecificationColorAdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AdminCheckRequest $request)
     {
 
         try {
@@ -88,7 +89,7 @@ class ModelsSpecificationColorAdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AdminCheckRequest $request, string $id)
     {
 
         try {

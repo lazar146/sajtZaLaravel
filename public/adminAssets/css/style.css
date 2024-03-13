@@ -1,0 +1,16 @@
+.alert {
+    max-width: 500px;
+    background-color: #007bff!important;
+    color: #ffffff!important;
+    border-color: #f5c6cb;
+    border-radius: .25rem;
+    padding: .75rem 1.25rem;
+}
+.alert ul {
+    list-style-type: none;
+    padding: 0;
+}
+.alert li {
+    color: #ffffff;
+    margin-bottom: 5px
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminCheckRequest;
 use App\Http\Requests\ProveraReg;
 use App\Models\BrandModel;
 use App\Models\ModelsModel;
@@ -34,7 +35,7 @@ class ModelsAdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AdminCheckRequest $request)
     {
 
         try {
@@ -84,7 +85,7 @@ class ModelsAdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AdminCheckRequest $request, string $id)
     {
 
         try {

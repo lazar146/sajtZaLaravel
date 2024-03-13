@@ -3253,3 +3253,12 @@ div#testimonials h4.m-title {
     justify-content: space-between;
     width: fit-content;
 }
+.alert {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.alert li {
+    color: #ffffff;
+}
+

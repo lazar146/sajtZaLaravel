@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminCheckRequest;
 use App\Models\CameraSpecModel;
 use App\Models\RamSpecModel;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class RamSpecsAdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AdminCheckRequest $request)
     {
 
         try {
@@ -69,7 +70,7 @@ class RamSpecsAdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AdminCheckRequest $request, string $id)
     {
 
         try {

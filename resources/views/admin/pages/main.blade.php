@@ -20,7 +20,7 @@
                         <h2 class="title-1">overview</h2>
                         <div class="col-md-12">
                             <div class="overview-wrap">
-
+                                <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
                                 <table class="table">
                                     <thead>
                                     <tr>
@@ -47,7 +47,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -55,13 +55,7 @@
 
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="copyright">
-                                <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

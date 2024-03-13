@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminCheckRequest;
 use App\Models\BrandModel;
 use App\Models\CameraSpecModel;
 use App\Models\ModelsModel;
@@ -31,7 +32,7 @@ class CameraSpecsAdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AdminCheckRequest $request)
     {
 
         try {
@@ -71,7 +72,7 @@ class CameraSpecsAdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AdminCheckRequest $request, string $id)
     {
 
         try {

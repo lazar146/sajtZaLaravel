@@ -10,6 +10,7 @@
 
 
     <!-- Fontfaces CSS-->
+    <link href={{asset('adminAssets/css/style.css')}} rel="stylesheet"/>
     <link href={{asset('adminAssets/css/bootstrap.css')}} rel="stylesheet"/>
     <link href={{asset('adminAssets/css/font-face.css')}} rel="stylesheet"/>
     <link href={{asset('adminAssets/vendor/font-awesome-4.7/css/font-awesome.min.css')}} rel="stylesheet"/>
